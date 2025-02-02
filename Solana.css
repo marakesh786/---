@@ -1,40 +1,38 @@
-/* Создание выделяющейся плашки сверху */
+/* Плашка заголовка окна */
 .platform-win .titlebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 32px;
-  background-color: #2b2b2b; /* Цвет плашки */
+  background-color: #202225; /* Цвет верхней плашки */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
-  -webkit-app-region: drag; /* Для перетаскивания окна */
+  -webkit-app-region: drag; /* Делает плашку перетаскиваемой */
   z-index: 200; /* Поверх остальных элементов */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Легкая тень */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Лёгкая тень */
 }
 
-/* Логотип Discord */
+/* Текст Discord */
 .platform-win .titlebar::before {
   content: 'Discord';
   font-size: 14px;
   color: white;
   font-weight: bold;
   margin-left: 10px;
-  -webkit-app-region: no-drag; /* Запрещаем перетаскивание */
+  -webkit-app-region: no-drag; /* Запрещает перетаскивание по тексту */
 }
 
-/* Контейнер для кнопок управления */
+/* Кнопки управления окном */
 .platform-win .window-controls {
   display: flex;
   gap: 8px;
-  -webkit-app-region: no-drag; /* Запрещаем перетаскивание на кнопках */
-  margin-left: auto; /* Кнопки вправо */
-  padding-right: 10px;
+  -webkit-app-region: no-drag; /* Отключает перетаскивание для кнопок */
 }
 
-/* Общий стиль для кнопок */
+/* Стиль кнопок управления */
 .platform-win .window-controls button {
   width: 14px;
   height: 14px;
@@ -43,6 +41,7 @@
   cursor: pointer;
   background-color: #4b4b4b;
   transition: background-color 0.3s ease;
+  margin: 0 4px;
 }
 
 /* Эффект при наведении */
@@ -63,13 +62,8 @@
   background-color: #ff5c57;
 }
 
-/* Улучшение взаимодействия */
-.platform-win .window-controls button:hover {
-  filter: brightness(1.2);
-}
-
-/* Перетаскивание через оставшуюся область */
+/* Перетаскиваемая область по центру */
 .platform-win .drag-area {
   flex: 1;
-  -webkit-app-region: drag;
+  -webkit-app-region: drag; /* Позволяет перетаскивать окно в этой области */
 }
